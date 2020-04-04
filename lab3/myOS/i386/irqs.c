@@ -1,4 +1,4 @@
 void ignoreIntBody(void)
 {
-	// TODO 请填写代码
+	put_chars("Unknown interrupt1\0",0x4,24,0);
 }
