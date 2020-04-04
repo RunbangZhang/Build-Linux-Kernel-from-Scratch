@@ -4,7 +4,9 @@
 	.globl disable_interrupt
 
 enable_interrupt:
-	;; TODO 请填写代码
+	sti
+	ret
 	
 disable_interrupt:
-	;; TODO 请填写代码
+	cli
+	ret
