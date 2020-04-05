@@ -5,7 +5,7 @@ extern void outb (unsigned short int port_to, unsigned char value);
 
 #define uart_base 0x3F8
 
-void uart_put_char(unsigned char c){
+void uart_put_char(unsigned char c){        //串口输出单个字符
 
     if(c == '\n'){				//特殊处理'\n'符
     	outb(uart_base,'\r');
@@ -17,11 +17,12 @@ void uart_put_char(unsigned char c){
 
 }
 
-unsigned char uart_get_char(void){
+unsigned char uart_get_char(void){         //从串口接受输入字符 
+    while(!(inb(uart_base+5)&1));
 	return inb(uart_base);
 }
 
-void uart_put_chars(char *str){ 
+void uart_put_chars(char *str){        //串口输出字符串
 	char *ptr = str;
     char c;
     
