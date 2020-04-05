@@ -89,7 +89,7 @@ setup_time_int_32:
 	movw $0x8E00,%dx
 
 	movl $IDT,%edi
-	addl $(32*8).%edi
+	addl $(32*8),%edi
 	movl %eax,(%edi)
 	movl %edx,4(%edi)
 
