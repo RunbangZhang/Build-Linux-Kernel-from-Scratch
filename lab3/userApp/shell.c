@@ -60,7 +60,7 @@ int cmd_handler(int argc, char **argv)
 	myPrintk(0x7,"command name : description\n");
 	int i=0;
   	while(cmds[i].func!=NULL){
-  		myPrintk(0x7,"%s:%s\n",cmds[i].cmd,cmds[i].desc);
+  		myPrintk(0x7,"%13s: %s\n",cmds[i].cmd,cmds[i].desc);
   		++i;
    	}
 	return 0;
@@ -115,7 +115,7 @@ void startShell(void)
  		}
 
  		if(cmds[i].func==NULL)
-			myPrintk(0x7, "\nUnknown cmd!\n");
+			myPrintk(0x7, "\nUnknown command:%s\n",args[0]);
 			
 	}
 }
