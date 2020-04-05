@@ -9,17 +9,17 @@ extern unsigned char inb(unsigned short int port_from);
 
 int cursor_row, cursor_col;      //光标
 
-void clear_screen(void) {			
+void clear_screen(void) {			//VGA清屏
 	int row, col;
 	unsigned short *ptr = (unsigned short *)0xb8000;
 	for(row = 0; row < 25; row++) {
-	    for (col = 0; col < 80; col++) {
+	    for (col = 0; col < 160; col++) {
 		(*ptr++) = 0;
 	    }
 	}
 }
 
-void put_char(char c, char color) {
+void put_char(char c, char color) {             //VGA输出指定颜色字符
 
 	int i;
     unsigned char *ptr = (unsigned char *)0xb8000;
@@ -29,13 +29,13 @@ void put_char(char c, char color) {
     {
         cursor_col = 0;
         cursor_row = (cursor_row + 1);
-        if(cursor_row==25)			//即将执行滚屏操作
+        if(cursor_row==24)			//即将执行滚屏操作
         {
-        	for(i = 0; i < 24*80*2; i++) 		
+        	for(i = 0; i < 23*80*2; i++) 		
         		ptr[i]=ptr[i+80*2];
-        	for(i = 24*80*2; i < 25*80*2; i++) 
+        	for(i = 23*80*2; i < 24*80*2; i++) 
         		ptr[i]=0;
-        	cursor_row=24;
+        	cursor_row=23;
 		}
         
     }
@@ -55,7 +55,7 @@ void put_char(char c, char color) {
     outb(0x3d5,pos & 0xff);
 }
 
-void append2screen(char *str,int color){ 
+void append2screen(char *str,int color){            //VGA输出指定颜色字符串
 	char *ptr = str;
     char c;
     
