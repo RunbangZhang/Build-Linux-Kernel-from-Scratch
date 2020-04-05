@@ -1,4 +1,4 @@
-SRC_RT=/home/xlanchen/workspace/OS_EX/multiboot_serials/3_shell_interrupt_timer/
+SRC_RT=/home/lps3025/workspace/lab3/
 #SRC_RT=$(shell pwd)
 
 CROSS_COMPILE=
