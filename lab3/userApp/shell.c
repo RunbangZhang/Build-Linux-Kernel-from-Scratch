@@ -1,10 +1,11 @@
 // NOTE: 以下框架仅供参考。可以推翻重写。
-
-// 命令处理函数
 #define NULL 0
 extern unsigned char uart_get_char(void);
 extern int myPrintk(int color,const char *format, ...);
+extern int strcmp(char *str1, char *str2);
+extern char *strtok(char *str, const char *delim);
 
+// 命令处理函数
 int cmd_handler(int, char **);
 int help_handler(int, char **);
 
