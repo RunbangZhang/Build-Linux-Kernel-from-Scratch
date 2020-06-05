@@ -5,6 +5,8 @@
 #include "../../userApp/userApp.h"
 #endif
 
+#define STACK_SIZE 4096
+
 #define TASK_NUM (2 + USER_TASK_NUM)   // at least: 0-idle, 1-init
 
 #define initTskBody myMain         // connect initTask with myMain
@@ -13,9 +15,12 @@ void initTskBody(void);
 
 void CTX_SW(void*prev_stkTop, void*next_stkTop);
 
-#error "TODO: 为 myTCB 增补合适的字段"
 typedef struct myTCB {
-     unsigned long *stkTop;     /* 栈顶指针 */
+     unsigned long * stkTop;     /* 栈顶指针 */
+	 unsigned long stack[STACK_SIZE];
+	 int tcbIndex; 
+	 struct myTCB *next;
+	 int state;
 } myTCB;
 
 myTCB tcbPool[TASK_NUM];
