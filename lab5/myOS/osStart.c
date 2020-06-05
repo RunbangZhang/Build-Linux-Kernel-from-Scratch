@@ -7,6 +7,9 @@
 #include "include/task.h"
 #include "include/myPrintk.h"
 
+unsigned long BspContextBase[STACK_SIZE];
+unsigned long *BspContext;
+
 void osStart(void){
      //pressAnyKeyToStart(); // prepare for uart device
      init8259A();
@@ -15,7 +18,16 @@ void osStart(void){
 
      clear_screen();
 
-#error "TODO: 初始化内存和任务管理"
+
+     pMemInit();
+     {
+     	unsigned long tmp = dPartitionAlloc(pMemHandler,100);
+     	dPartitionWalkByAddr(pMemHandler);
+     	dPartitionFree(pMemHandler,tmp);
+     	dPartitionWalkByAddr(pMemHandler);
+     }
+
+     TaskManagerInit();
 
      while(1);
 }
