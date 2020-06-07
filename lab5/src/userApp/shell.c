@@ -143,7 +143,7 @@ void startShell(void){
      //myPrintf(0x7,"StartShell:\n");     
     
      while(1) {
-          myPrintf(0x3,"xlanchen >:");
+          myPrintf(0x3,"rbzhang >:");
           getCmdline(&cmdline[0],100);
           myPrintf(0x7,cmdline);
 
