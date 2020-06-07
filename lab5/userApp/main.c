@@ -32,12 +32,12 @@ void myMain(void) {
 	 myPrintf(0x7, "*        INIT   INIT !         *\n");
 	 myPrintf(0x7, "********************************\n");
 
-     createTsk(myTsk0);
+     createTsk(myTsk0);       
      createTsk(myTsk1);
      createTsk(myTsk2);
 
      initShell();
-     memTestCaseInit();    //应该可不加
+     memTestCaseInit();    
      createTsk(startShell);
 
      tskEnd();
