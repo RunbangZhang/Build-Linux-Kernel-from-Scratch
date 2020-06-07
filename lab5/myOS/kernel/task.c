@@ -75,13 +75,11 @@ void stack_init(unsigned long **stk, void (*task)(void)){
  * 必须实现的外部接口
  */
 void tskStart(myTCB *tsk){
-//#error "TODO: 实现本函数"
 	tsk->state = TSK_RDY;
 	tskEnqueueFCFS(tsk);
 }
 
 void tskEnd(void){
-//#error "TODO: 实现本函数"
 	tskDequeueFCFS(currentTsk);
 	destroyTsk(currentTsk->tcbIndex);
 }
@@ -91,7 +89,6 @@ void tskEnd(void){
  * return value: taskIndex or, if failed, -1
  */
 int createTsk(void (*tskBody)(void)) {
-//#error "TODO: 实现本函数"
 
 	myTCB * allocated = firstFreeTsk;
 	if(!allocated) return -1;
@@ -110,7 +107,6 @@ int createTsk(void (*tskBody)(void)) {
  * return value: void
  */
 void destroyTsk(int takIndex) {
-//#error "TODO: 实现本函数"
 	tcbPool[takIndex].state = -1;
 
 	schedule();
@@ -119,7 +115,6 @@ void destroyTsk(int takIndex) {
 unsigned long **prevTSK_StackPtr;
 unsigned long *nextTSK_StackPtr;
 void context_switch(myTCB *prevTsk, myTCB *nextTsk) {
-//#error "TODO: 实现本函数"
 	prevTSK_StackPtr = &prevTsk->stkTop;	
 	nextTSK_StackPtr = nextTsk->stkTop;
 
@@ -127,7 +122,6 @@ void context_switch(myTCB *prevTsk, myTCB *nextTsk) {
 }
 
 void scheduleFCFS(void) {
-//#error "TODO: 实现本函数"
 	myTCB * prevTsk = currentTsk;
 	currentTsk = nextFCFSTsk();
 
@@ -142,7 +136,6 @@ void schedule(void) {
  * idle 任务
  */
 void tskIdleBdy(void) {
-//#error "TODO: 实现本函数"
 	while(rqFCFSIsEmpty);
 	schedule();
 }
@@ -160,7 +153,6 @@ void startMultitask(void) {
 }
 
 void TaskManagerInit(void) {
-//#error "TODO: 实现本函数"
      // 初始化 TCB 数组
      // 创建 idle 任务
      // 创建 init 任务（使用 initTskBody）
