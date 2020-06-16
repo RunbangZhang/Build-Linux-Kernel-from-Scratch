@@ -38,10 +38,7 @@ void initArrList(void){
 }
 
 /* arrTime: small --> big */
-void ArrListEnqueue(myTCB* tsk){    
-    //本函数需要实现！！！
-    //根据tsk新建一个节点 按照arrTime小到大的顺序插入到链表的对应位置
-    //同时arrPool也要有tsk
+void ArrListEnqueue(myTCB* tsk){     //根据tsk新建一个节点 按照arrTime小到大的顺序插入到链表的对应位置
     arrNode *p = tcb2Arr(tsk);
     p->theTCB = tsk;
     p->arrTime = tsk->para.arrTime;
