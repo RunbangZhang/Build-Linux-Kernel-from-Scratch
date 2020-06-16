@@ -29,7 +29,7 @@ void setSysScheduler(unsigned int what){
     //设置*sysScheduler使用最上面列举的哪种调度器
     switch (what){
         case SCHEDULER_FCFS:        sysScheduler = &scheduler_FCFS; break;
-        //case SCHEDULER_SJF:         sysScheduler = &scheduler_SJF; break;
+        case SCHEDULER_SJF:         sysScheduler = &scheduler_SJF; break;
         case SCHEDULER_PRIORITY0:   sysScheduler = &scheduler_PRIO0; break;
         //case SCHEDULER_RR:          sysScheduler = &scheduler_RR; break;
        //case SCHEDULER_PRIORITY:    sysScheduler = &scheduler_PRIO; break;
