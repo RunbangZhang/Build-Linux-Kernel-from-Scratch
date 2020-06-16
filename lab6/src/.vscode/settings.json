@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "dlinklist.h": "c",
+        "tcb.h": "c",
+        "task_sched.h": "c",
+        "taskpara.h": "c",
+        "task_arr.h": "c",
+        "task.h": "c"
+    }
+}
