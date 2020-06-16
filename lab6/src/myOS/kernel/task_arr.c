@@ -46,7 +46,7 @@ void ArrListEnqueue(myTCB* tsk){
     p->theTCB = tsk;
     p->arrTime = tsk->para.arrTime;
     dLink_node *q = arrList.next;
-    while(q!=&arrList && ((arrNode *)q)->arrTime<p->arrTime)
+    while(q!=&arrList && ((arrNode *)q)->arrTime<=p->arrTime)
         q=q->next;
     dLinkInsertBefore(&arrList,q,(dLink_node *)p);
 }
